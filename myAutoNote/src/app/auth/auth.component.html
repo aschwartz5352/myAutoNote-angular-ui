@@ -1,0 +1,18 @@
+<button md-button (click)="login()">login</button>
+<button md-button (click)="logout()">logout</button>
+
+<section *ngIf="user">
+  <section *ngFor="let form of forms">
+    {{form}}
+    <md-input-container >
+      <input mdInput type="text" placeholder="item" [formControl]="form">
+    </md-input-container>
+  </section>
+
+
+  <ul>
+   <li *ngFor="let item of items | async">
+     {{ item.$value }}
+   </li>
+ </ul>
+</section>
