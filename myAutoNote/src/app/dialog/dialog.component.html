@@ -1,0 +1,33 @@
+
+<section *ngIf="userProfile">
+
+  <section *ngIf="actionType == 'logout'">
+    <section id="user-info-wrapper" >
+      <img id="user-photo" src="{{userProfile.photoURL}}"/>
+      <p id="user-info">{{userProfile.displayName}}  </p>
+    </section>
+    <button md-button id="logout-button" (click)="logout()" md-dialog-close>logout</button>
+  </section>
+
+
+  <section *ngIf="actionType == 'file'">
+
+    <h3>Create New File</h3>
+    <md-input-container>
+      <input mdInput placeholder="name" [(ngModel)]="name">
+    </md-input-container>
+    <button md-button id="logout-button" [md-dialog-close]="name">create</button>
+
+  </section>
+
+  <section *ngIf="actionType == 'folder'">
+
+    <h3>Create New Folder</h3>
+    <md-input-container>
+      <input mdInput placeholder="name" [(ngModel)]="name">
+    </md-input-container>
+    <button md-button id="logout-button" [md-dialog-close]="name">create</button>
+
+  </section>
+
+</section>

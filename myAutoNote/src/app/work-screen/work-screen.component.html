@@ -1,0 +1,65 @@
+<section id="note-header">
+  <section id="note-header-left">
+    <md-icon (click)="back()" mdTooltip="choose a different note">arrow_back</md-icon>
+
+    <h3 mdTooltip="click to change title" >{{notePath}}</h3>
+
+  </section>
+
+</section>
+<section id="work-wrapper" *ngIf="userProfile">
+
+
+  <md-grid-list cols="2" rowHeight="fit">
+    <md-grid-tile>
+      <section class="grid-tile-wrapper">
+        <md-card id="editor-card">
+          <md-card-content id="editor-wrapper">
+            <quill-editor #editor (onContentChanged)="updateContents($event)" [(ngModel)]="value">
+              <div quill-editor-toolbar>
+                <span class="ql-formats">
+                  <button class="ql-bold" mdTooltip="bold" [title]="'Bold'"></button>
+                  <button class="ql-italic" mdTooltip="italic" [title]="'Italic'"></button>
+                  <button class="ql-underline" mdTooltip="underline" [title]="'Underline'"></button>
+                </span>
+                <md-icon mdTooltip="save" (click)="save()">save</md-icon>
+
+              </div>
+            </quill-editor>
+          </md-card-content>
+        </md-card>
+      </section>
+
+    </md-grid-tile>
+    <md-grid-tile>
+      <section  class="grid-tile-wrapper">
+        <md-card id="viewer-card">
+          <md-card-content>
+            <section id="formatted-text" [innerHTML]="formattedNotes">
+            </section>
+          </md-card-content>
+
+        </md-card>
+      </section>
+
+    </md-grid-tile>
+  </md-grid-list>
+
+
+
+
+
+</section>
+
+
+
+
+<!-- <quill-editor #viewer [readOnly]="true" (onContentChanged)="updateContents($event)">
+  <div quill-editor-toolbar>
+    <span class="ql-formats">
+      <button class="ql-bold" [title]="'Bold'"></button>
+      <button class="ql-italic" [title]="'Italic'"></button>
+      <button class="ql-underline" [title]="'Underline'"></button>
+    </span>
+  </div>
+</quill-editor> -->

@@ -20,7 +20,7 @@ export class AuthComponent implements OnInit {
   private item;
   forms:any[] = [];
 
-  constructor(public afAuth: AngularFireAuth,private db: AngularFireDatabase, private store:Store<any>) {
+  constructor(private afAuth: AngularFireAuth,private db: AngularFireDatabase, private store:Store<any>) {
     this.user = afAuth.authState;
   }
 
@@ -34,18 +34,17 @@ export class AuthComponent implements OnInit {
 
   ngOnInit() {
 
-    this.user.subscribe(us => {
-      console.log(us);
-      this.store.dispatch({type:UserProfileReducer.SET_PROFILE, payload:us});
-      let d = new Date();
+    //this.user.subscribe(us => {
 
-      this.item = this.db.object('/'+us.uid);
-      this.item.update({
-        lastLoginDate:d.getTime(),
+      //this.store.dispatch({type:UserProfileReducer.SET_PROFILE, payload:us});
+      // let d = new Date();
+      //
+      //  this.item = this.db.object('/users/'+us.uid);
+      //  this.item.update({
+      //    lastLoginDate:d.getTime(),
+      //  });
 
-      });
-
-      this.item.subscribe(item => console.log(item));
+      //this.item.subscribe(item => console.log(item));
       //this.items = this.db.list('/items');
     //   this.items.subscribe(items =>{
     //     this.forms = [];
@@ -58,7 +57,7 @@ export class AuthComponent implements OnInit {
     //       console.log(newData);
     //     }));
     // });
-  });
+  //});
 
 
 }

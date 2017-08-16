@@ -1,2 +1,8 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <app-header></app-header>
+
+<router-outlet></router-outlet>
+
+<section id="login-wrapper" *ngIf="!userProfile">
+  <img id="login-button" (click)="login()" alt="login" src="../../assets/google_login.png"/>
+
+</section>

@@ -3,10 +3,12 @@
     <img id="app-logo" alt="logo" src="../../assets/logo.png"/>
   </div>
   <div id="auth-wrapper">
-    <section *ngIf="userProfile">
-      {{userProfile.displayName}}
+    <section id="user-info-wrapper">
+      <p id="user-info" *ngIf="!userProfile">logged out</p>
+      <p id="user-info" *ngIf="userProfile">{{userProfile.displayName}}</p>
+      <img id="user-photo"  *ngIf="userProfile" src="{{userProfile.photoURL}}" (click)="openDialog()"/>
     </section>
-    <app-auth></app-auth>
+    <!-- <app-auth></app-auth> -->
 
   </div>
 </div>
